@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mian Abdullah Ahsan | Web Developer</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #070d19;
+  --card: #101a2d;
+  --blue: #6483ff;
+  --purple: #9b7bff;
+  --text: #f4f6ff;
+  --muted: #aab7d0;
+  --border: #263653;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 80% 5%, #20285b 0%, transparent 35%),
+    var(--bg);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  background: #080e1bef;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.logo span, .gradient {
+  color: var(--blue);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(110deg, var(--blue), var(--purple));
+  border: 1px solid transparent;
+}
+
+.btn.outline {
+  background: transparent;
+  border-color: #68799d;
+}
+
+.hero {
+  min-height: 510px;
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+}
+
+.tag {
+  display: inline-block;
+  color: #d1d9ff;
+  background: #19274c;
+  border: 1px solid #344777;
+  border-radius: 30px;
+  padding: 5px 14px;
+}
+
+h1 {
+  font-size: clamp(38px, 5vw, 61px);
+  line-height: 1.12;
+  margin: 20px 0;
+  letter-spacing: -1.5px;
+}
+
+.gradient {
+  background: linear-gradient(100deg, #7291ff, #c0a2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p, .muted {
+  color: var(--muted);
+}
+
+.hero p {
+  max-width: 510px;
+  margin-bottom: 24px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  width: 100%;
+  display: block;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 70px #0008;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-block: 1px solid var(--border);
+  padding: 25px 0;
+  gap: 15px;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: 25px;
+  color: white;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+section {
+  padding: 65px 0;
+  border-bottom: 1px solid #1d2940;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.underline {
+  width: 48px;
+  height: 3px;
+  background: var(--blue);
+  margin-bottom: 25px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.panel, .project {
+  background: linear-gradient(145deg, #121d32, #0b1322);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.panel p {
+  margin-bottom: 14px;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.skill {
+  padding: 13px 9px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: center;
+  background: #101a2b;
+  font-size: 14px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.project {
+  transition: transform .2s, border-color .2s;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+}
+
+.project h3 {
+  margin: 12px 0 5px;
+}
+
+.project p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.project a {
+  color: #aebfff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-label {
+  color: #c7d2ff;
+  font-size: 12px;
+  border: 1px solid #344777;
+  padding: 4px 9px;
+  border-radius: 20px;
+}
+
+.contact-box {
+  text-align: center;
+  padding: 40px 20px;
+  border: 1px solid #344777;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #151f46, #101a30);
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin: 12px 0 22px;
+}
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }
+
+  nav ul {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .hero, .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 45px 0;
+  }
+
+  .hero-image {
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 39px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <div class="logo">Mian <span>Abdullah Ahsan</span></div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a class="btn" href="#contact">Hire Me ↗</a>
+  </nav>
+</header>
+
+<main>
+  <div class="container hero" id="home">
+    <div>
+      <span class="tag">Hello, I'm</span>
+
+      <h1>Mian <span class="gradient">Abdullah</span> Ahsan</h1>
+
+      <h2>Web Developer</h2>
+
+      <p>
+        I build modern, responsive websites for businesses.
+        My focus is on clean design, great user experience,
+        and helping businesses present their services online.
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="#projects">View My Projects →</a>
+        <a class="btn outline" href="#contact">Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Upload your developer image to the repository
+         using this exact filename. -->
+    <img
+      class="hero-image"
+      src="developer-illustration.png"
+      alt="Developer working on a laptop"
+    >
+  </div>
+
+  <div class="container stats">
+    <div class="stat">
+      <strong>5</strong>
+      <span>Sample Projects</span>
+    </div>
+    <div class="stat">
+      <strong>5+</strong>
+      <span>Website Concepts</span>
+    </div>
+    <div class="stat">
+      <strong>100%</strong>
+      <span>Focus on Quality</span>
+    </div>
+    <div class="stat">
+      <strong>Remote</strong>
+      <span>Available Online</span>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="panel">
+        <h2 class="section-title">About Me</h2>
+        <div class="underline"></div>
+
+        <p>
+          I'm Mian Abdullah Ahsan, a web developer focused on
+          building responsive websites for businesses.
+        </p>
+
+        <p class="muted">
+          My process is simple: understand your needs, agree
+          on the scope, create a preview, test the website,
+          and help with the final handover.
+        </p>
+
+        <p><strong>Location:</strong> Pakistan</p>
+        <p><strong>Work:</strong> Freelance website projects</p>
+      </div>
+
+      <div class="panel" id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="underline"></div>
+
+        <div class="skills">
+          <div class="skill">HTML5</div>
+          <div class="skill">CSS3</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">Responsive UI</div>
+          <div class="skill">Web Design</div>
+          <div class="skill">GitHub Pages</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      <div class="underline"></div>
+
+      <p class="muted" style="margin-bottom:25px">
+        Sample projects. Open each link and verify it works
+        before sharing this portfolio with a client.
+      </p>
+
+      <div class="projects">
+        <article class="project">
+          <span class="project-label">Real Estate</span>
+          <h3>Prime Estate</h3>
+          <p>Sample property website concept.</p>
+          <a href="https://mianabd.github.io/real-estate-demo/"
+             target="_blank" rel="noopener">View Demo ↗</a>
+        </article>
+
+        <article class="project">
+          <span class="project-label">Barber Salon</span>
+          <h3>Barber Salon</h3>
+          <p>Sample salon services website concept.</p>
+          <a href="https://mianabd.github.io/barber-saloon-demo/"
+             target="_blank" rel="noopener">View Demo ↗</a>
+        </article>
+
+        <article class="project">
+          <span class="project-label">Dental Clinic</span>
+          <h3>Dental Clinic</h3>
+          <p>Sample clinic services and inquiry website.</p>
+          <a href="https://mianabd.github.io/dental-clinic-demo/"
+             target="_blank" rel="noopener">View Demo ↗</a>
+        </article>
+
+        <article class="project">
+          <span class="project-label">Restaurant</span>
+          <h3>Restaurant Website</h3>
+          <p>Sample restaurant website concept.</p>
+          <a href="https://mianabd.github.io/restaurant-demo/"
+             target="_blank" rel="noopener">View Demo ↗</a>
+        </article>
+
+        <article class="project">
+          <span class="project-label">School</span>
+          <h3>School Website</h3>
+          <p>Sample school information website concept.</p>
+          <a href="https://mianabd.github.io/school-demo/"
+             target="_blank" rel="noopener">View Demo ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p>
+          Have a project in mind? Let's discuss your business
+          website requirements.
+        </p>
+
+        <!-- Replace the email below with your own working email. -->
+        <a class="btn" href="mailto:YOUR_EMAIL_HERE">
+          Contact Me ↗
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 Mian Abdullah Ahsan · Web Developer
+</footer>
+
+</body>
+</html>
