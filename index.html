@@ -4,640 +4,403 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b18">
-  <meta name="description" content="I'm Mian Abdullah Ahsan, a web developer creating responsive, modern websites for businesses. Explore my website demos and get in touch.">
+  <meta name="theme-color" content="#080d1b">
   <title>Mian Abdullah Ahsan | Web Developer</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Mian Abdullah Ahsan creates modern, responsive websites for businesses, schools, clinics and restaurants.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23080d1b'/%3E%3Ctext x='50' y='66' font-size='42' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%2360a5fa'%3EMA%3C/text%3E%3C/svg%3E">
 
   <style>
     :root {
-      --bg: #080b18;
-      --surface: #101528;
-      --surface-2: #141a30;
-      --text: #f3f5ff;
-      --muted: #a0a8c1;
-      --blue: #6485ff;
-      --purple: #a578ff;
-      --border: rgba(166, 180, 255, .13);
-      --radius: 20px;
-      --max: 1120px;
+      --bg: #080d1b;
+      --panel: #10182b;
+      --text: #f4f7ff;
+      --muted: #a5b1c9;
+      --blue: #60a5fa;
+      --purple: #a78bfa;
+      --green: #22c55e;
+      --border: rgba(255,255,255,.1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      background:
-        radial-gradient(ellipse at 78% 5%, rgba(91, 67, 196, .13), transparent 35%),
-        radial-gradient(ellipse at 5% 35%, rgba(48, 91, 209, .09), transparent 35%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
-      font-family: "DM Sans", sans-serif;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
       line-height: 1.7;
       overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    button { font: inherit; }
-    svg { display: block; }
-    .container { width: min(var(--max), calc(100% - 44px)); margin-inline: auto; }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: #b7c4ff;
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
+    .container { width: min(1120px, 90%); margin: auto; }
+
+    .glow {
+      position: fixed;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: .14;
+      pointer-events: none;
+      z-index: -1;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 22px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--blue), var(--purple));
-      border-radius: 10px;
-    }
+    .glow.one { background: #2563eb; top: 50px; left: -160px; }
+    .glow.two { background: #9333ea; top: 400px; right: -180px; }
 
-    h1, h2, h3, .brand { font-family: "Space Grotesk", sans-serif; }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.045em; }
-    .section { padding: 100px 0; }
-    .section-heading { max-width: 650px; margin-bottom: 38px; }
-    .section-heading .eyebrow { margin-bottom: 15px; }
-    .section-heading p { color: var(--muted); margin-top: 14px; max-width: 580px; }
-
-    .gradient-text {
-      color: #a8baff;
-      background: linear-gradient(100deg, #84a3ff 10%, #bd9aff 90%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Navigation */
-    .navbar {
+    header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(8, 11, 24, .84);
-      backdrop-filter: blur(18px);
+      z-index: 10;
+      background: rgba(8,13,27,.9);
       border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
     }
 
-    .nav-inner {
+    nav {
       min-height: 76px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 22px;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .brand { font-weight: 700; font-size: 1.12rem; letter-spacing: -.04em; }
-    .brand span { color: #94a9ff; }
-    .nav-links { display: flex; align-items: center; gap: 27px; }
-    .nav-links a { color: #b4bbd1; font-size: .88rem; transition: color .2s; }
+    .logo { font-size: 1.2rem; font-weight: 800; }
+    .logo span { color: var(--blue); }
+
+    .nav-links { display: flex; gap: 25px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: .94rem; }
     .nav-links a:hover { color: white; }
-    .nav-links .nav-cta { color: white; }
 
-    .menu-toggle {
-      display: none;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: white;
-      border-radius: 10px;
-      padding: 9px 12px;
-      cursor: pointer;
-    }
-
-    /* Buttons */
-    .btn {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 12px 19px;
+      gap: 8px;
+      padding: 12px 20px;
       border-radius: 12px;
-      border: 1px solid transparent;
       font-weight: 700;
-      font-size: .9rem;
-      transition: transform .2s, border-color .2s, background .2s;
+      transition: .2s;
+      border: 1px solid var(--border);
       cursor: pointer;
     }
 
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: linear-gradient(110deg, #5c7cff, #8a69ed);
-      color: white;
-      box-shadow: 0 8px 30px rgba(91, 106, 255, .19);
+    .button:hover { transform: translateY(-3px); }
+
+    .primary {
+      color: #08101f;
+      background: linear-gradient(110deg, var(--blue), var(--purple));
+      border: none;
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,.025);
-      border-color: var(--border);
-      color: #e6eaff;
-    }
+    .secondary { background: rgba(255,255,255,.04); }
 
-    .btn-secondary:hover { border-color: rgba(143, 161, 255, .45); }
-    .arrow { font-size: 1.1em; }
-
-    /* Hero */
-    .hero { padding: 86px 0 75px; min-height: 620px; display: flex; align-items: center; }
-    .hero-grid {
+    .hero {
+      min-height: 650px;
       display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 56px;
+      grid-template-columns: 1.25fr .75fr;
       align-items: center;
+      gap: 55px;
+      padding-top: 65px;
+      padding-bottom: 75px;
     }
 
-    .availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 7px 12px;
-      border: 1px solid rgba(115, 218, 174, .2);
-      background: rgba(49, 170, 119, .07);
-      border-radius: 99px;
-      color: #a6e9cb;
-      font-size: .78rem;
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(96,165,250,.35);
+      background: rgba(96,165,250,.08);
+      color: #bfdbfe;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: .85rem;
       margin-bottom: 24px;
     }
 
-    .availability span {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #68dfa5; box-shadow: 0 0 12px #68dfa5;
+    h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.7rem);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.8rem, 5.5vw, 4.65rem);
-      line-height: 1.06;
-      letter-spacing: -.065em;
-      max-width: 670px;
+    .gradient {
+      background: linear-gradient(100deg, #60a5fa, #c4b5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    .hero h1 .name { display: block; }
-    .hero-copy {
-      max-width: 540px;
+    .hero p, .section-description {
       color: var(--muted);
-      margin-top: 23px;
-      font-size: 1.02rem;
+      max-width: 610px;
+      font-size: 1.04rem;
     }
 
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 30px; }
 
-    .hero-note {
-      margin-top: 24px;
-      color: #858eaa;
-      font-size: .82rem;
-    }
+    .hero-note { color: var(--muted); font-size: .84rem; margin-top: 20px; }
 
-    .hero-note strong { color: #c9d2f5; font-weight: 600; }
-
-    .visual-wrap { position: relative; min-width: 0; }
-    .visual-glow {
-      position: absolute; inset: 12% 8%;
-      background: linear-gradient(135deg, rgba(73, 104, 255, .27), rgba(155, 91, 255, .23));
-      filter: blur(70px);
-      border-radius: 50%;
-    }
-
-    .developer-art {
-      width: 100%;
-      max-width: 470px;
-      margin-inline: auto;
+    .profile-card {
       position: relative;
-      filter: drop-shadow(0 25px 65px rgba(55, 76, 180, .14));
+      padding: 30px;
+      background: linear-gradient(145deg, #17233c, #0d1426);
+      border: 1px solid rgba(167,139,250,.35);
+      border-radius: 28px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.3);
+      text-align: center;
     }
 
-    .floating-card {
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 15px;
-      border: 1px solid rgba(175, 188, 255, .18);
-      background: rgba(15, 21, 43, .9);
-      backdrop-filter: blur(15px);
-      border-radius: 13px;
-      box-shadow: 0 15px 45px rgba(0,0,0,.22);
-      font-size: .79rem;
-      color: #e2e8ff;
-    }
-
-    .floating-card small { display: block; color: #939dbb; font-size: .7rem; }
-    .floating-icon {
-      width: 34px; height: 34px; display: grid; place-items: center;
-      background: rgba(104, 130, 255, .14); border-radius: 10px; color: #a5b5ff;
-    }
-    .float-one { top: 18%; left: -5%; }
-    .float-two { bottom: 16%; right: -2%; }
-
-    /* Proof strip */
-    .proof-strip {
+    .avatar {
+      width: 145px;
+      height: 145px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.018);
-      border-radius: 18px;
-      padding: 24px 12px;
+      place-items: center;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(145deg, #2563eb, #9333ea);
+      border: 4px solid rgba(255,255,255,.13);
+      box-shadow: 0 0 45px rgba(96,165,250,.18);
     }
 
-    .proof-item { padding: 4px 22px; text-align: center; }
-    .proof-item + .proof-item { border-left: 1px solid var(--border); }
-    .proof-item strong { display: block; font-family: "Space Grotesk"; font-size: 1rem; }
-    .proof-item span { display: block; color: var(--muted); font-size: .8rem; margin-top: 4px; }
+    .profile-card h2 { font-size: 1.4rem; }
+    .profile-card > p { color: var(--muted); margin-top: 5px; }
 
-    /* About */
-    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 55px; align-items: start; }
-    .about-panel {
-      border: 1px solid var(--border);
-      background: linear-gradient(145deg, rgba(94, 115, 255, .1), rgba(164, 102, 255, .035));
-      border-radius: var(--radius);
-      padding: 27px;
-    }
+    .skill-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 22px; }
 
-    .about-panel .big-mark {
-      font-family: "Space Grotesk"; font-size: 3.5rem; line-height: 1;
-      color: #9aaeff; font-weight: 700;
-    }
-
-    .about-panel h3 { margin-top: 18px; font-size: 1.25rem; }
-    .about-panel p { color: var(--muted); font-size: .91rem; margin-top: 9px; }
-    .about-copy p { color: var(--muted); margin-top: 16px; }
-    .about-copy p:first-of-type { margin-top: 0; }
-
-    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
-    .skill {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.025);
-      padding: 7px 12px;
-      border-radius: 9px;
-      color: #d0d7f1;
+    .skill-tags span {
+      padding: 6px 11px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.06);
+      color: #dbeafe;
       font-size: .8rem;
     }
 
-    /* Projects */
-    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .certificate {
+      position: relative;
+      margin-top: 28px;
+      padding: 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      color: #172033;
+      border: 2px solid #cbd5e1;
+      text-align: left;
+    }
 
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: linear-gradient(155deg, rgba(20, 26, 48, .95), rgba(13, 17, 33, .96));
-      padding: 25px;
+    .certificate-top { display: flex; align-items: center; gap: 10px; }
+
+    .check {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 900;
+      box-shadow: 0 0 0 5px rgba(34,197,94,.13);
+    }
+
+    .certificate small { color: #475569; }
+    .certificate h3 { font-size: 1.04rem; margin-top: 10px; }
+    .certificate p { font-size: .83rem; color: #475569; }
+
+    .section { padding: 85px 0; }
+
+    .section-heading { text-align: center; margin-bottom: 42px; }
+    .section-heading h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 10px; }
+    .section-heading p { color: var(--muted); }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project {
       display: flex;
       flex-direction: column;
-      min-height: 275px;
-      transition: transform .25s, border-color .25s, box-shadow .25s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(130, 150, 255, .38);
-      box-shadow: 0 20px 55px rgba(0,0,0,.16);
-    }
-
-    .project-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .project-icon {
-      width: 46px; height: 46px; display: grid; place-items: center;
-      background: linear-gradient(135deg, rgba(96, 124, 255, .19), rgba(162, 111, 255, .12));
-      border: 1px solid rgba(139, 156, 255, .16);
-      border-radius: 13px; color: #b5c1ff;
-    }
-
-    .project-type {
-      font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
-      color: #a9b6ed; border: 1px solid var(--border);
-      border-radius: 99px; padding: 5px 9px;
-    }
-
-    .project-card h3 { font-size: 1.35rem; margin-top: 22px; letter-spacing: -.025em; }
-    .project-card p { color: var(--muted); font-size: .9rem; margin-top: 8px; }
-    .project-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto; padding-top: 22px; }
-    .demo-label { color: #8e98b5; font-size: .75rem; }
-    .project-link { display: inline-flex; align-items: center; gap: 7px; color: #b9c7ff; font-weight: 700; font-size: .86rem; }
-    .project-link:hover { color: white; }
-
-    .demo-disclaimer {
-      margin-top: 20px;
-      padding: 14px 17px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.02);
+      min-width: 0;
+      padding: 25px;
       border: 1px solid var(--border);
-      color: #919bb6;
-      font-size: .8rem;
+      background: linear-gradient(145deg, rgba(19,29,49,.95), rgba(12,19,34,.95));
+      border-radius: 20px;
+      transition: .25s;
     }
 
-    /* Process */
-    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .process-card { border: 1px solid var(--border); border-radius: 16px; padding: 23px; background: rgba(255,255,255,.018); }
-    .process-number { font-family: "Space Grotesk"; color: #9eafff; font-size: .82rem; }
-    .process-card h3 { margin-top: 16px; font-size: 1.08rem; }
-    .process-card p { margin-top: 8px; color: var(--muted); font-size: .86rem; }
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(96,165,250,.5);
+    }
 
-    /* Contact */
-    .contact-panel {
-      border: 1px solid rgba(141, 157, 255, .2);
-      background:
-        radial-gradient(ellipse at 100% 0%, rgba(126, 89, 255, .15), transparent 48%),
-        linear-gradient(120deg, rgba(56, 79, 166, .12), rgba(18, 22, 42, .8));
+    .project-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: rgba(96,165,250,.12);
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+    }
+
+    .project h3 { font-size: 1.2rem; margin-bottom: 9px; }
+    .project p { color: var(--muted); font-size: .93rem; margin-bottom: 20px; flex: 1; }
+
+    .project a { color: #93c5fd; font-weight: 700; }
+    .project a:hover { color: white; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+    }
+
+    .service .icon { font-size: 1.7rem; }
+    .service h3 { margin: 12px 0 7px; }
+    .service p { color: var(--muted); font-size: .93rem; }
+
+    .about-box {
+      max-width: 820px;
+      margin: auto;
+      text-align: center;
+      padding: 38px;
       border-radius: 24px;
-      padding: clamp(27px, 5vw, 52px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+      border: 1px solid var(--border);
+      background: var(--panel);
     }
 
-    .contact-panel h2 { max-width: 610px; }
-    .contact-panel p { max-width: 570px; color: var(--muted); margin-top: 13px; }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .about-box p { color: var(--muted); margin-top: 14px; }
 
-    .contact-aside {
-      min-width: 205px; border-left: 1px solid var(--border); padding-left: 30px;
+    .contact-box {
+      text-align: center;
+      padding: 50px 25px;
+      border-radius: 25px;
+      background: linear-gradient(130deg, rgba(37,99,235,.17), rgba(147,51,234,.15));
+      border: 1px solid rgba(147,139,250,.25);
     }
-    .contact-aside span { display: block; color: #929bb7; font-size: .78rem; }
-    .contact-aside strong { display: block; margin-top: 6px; font-size: .94rem; }
 
-    footer { padding: 28px 0; border-top: 1px solid var(--border); }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
-    .footer-inner p { color: #858eaa; font-size: .79rem; }
-    .back-top { color: #b6c3ff; font-size: .82rem; }
+    .contact-box h2 { font-size: clamp(2rem, 4vw, 2.7rem); margin-bottom: 12px; }
+    .contact-box p { color: var(--muted); margin: 0 auto 25px; max-width: 580px; }
 
-    :focus-visible { outline: 2px solid #94a9ff; outline-offset: 4px; }
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      padding: 25px 0;
+      font-size: .9rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25d366;
+      color: #062c17;
+      font-size: 1.7rem;
+      font-weight: 900;
+      box-shadow: 0 8px 30px rgba(37,211,102,.25);
+    }
 
     @media (max-width: 850px) {
-      .nav-links { gap: 17px; }
-      .hero-grid { gap: 25px; }
-      .hero { padding-top: 65px; }
-      .float-one { left: -1%; }
-      .about-grid { gap: 28px; }
-      .contact-panel { align-items: flex-start; flex-direction: column; }
-      .contact-aside { border-left: 0; border-top: 1px solid var(--border); padding: 20px 0 0; width: 100%; }
+      .hero { grid-template-columns: 1fr; gap: 35px; padding-top: 55px; }
+      .profile-card { max-width: 450px; width: 100%; margin: auto; }
+      .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
-    @media (max-width: 680px) {
-      .container { width: min(100% - 32px, var(--max)); }
-      .nav-inner { min-height: 68px; }
-      .menu-toggle { display: block; }
-      .nav-links {
-        display: none;
-        position: absolute; top: 68px; left: 0; right: 0;
-        background: #0b0f20; border-bottom: 1px solid var(--border);
-        padding: 18px 22px 22px; flex-direction: column; align-items: stretch; gap: 0;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 11px 0; }
-      .nav-links .nav-cta { margin-top: 8px; text-align: center; }
-      .hero { min-height: auto; padding: 62px 0 46px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 25px; }
-      .hero h1 { font-size: clamp(2.75rem, 12vw, 4rem); }
-      .hero-copy { font-size: .96rem; }
-      .visual-wrap { width: min(100%, 420px); margin-inline: auto; }
-      .developer-art { max-width: 360px; }
-      .float-one { top: 12%; left: 0; }
-      .float-two { bottom: 12%; right: 0; }
-      .section { padding: 72px 0; }
-      .proof-strip { grid-template-columns: 1fr; gap: 0; padding: 8px 18px; }
-      .proof-item { padding: 15px 4px; }
-      .proof-item + .proof-item { border-left: 0; border-top: 1px solid var(--border); }
-      .about-grid, .projects-grid, .process-grid { grid-template-columns: 1fr; }
-      .about-grid { gap: 24px; }
-      .project-card { min-height: 250px; padding: 22px; }
-      .contact-actions { flex-direction: column; align-items: stretch; }
-      .contact-actions .btn { width: 100%; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    @media (max-width: 580px) {
+      .container { width: 91%; }
+      nav { min-height: 68px; }
+      .nav-links { gap: 12px; }
+      .nav-links a:not(.nav-contact) { display: none; }
+      .nav-contact { font-size: .82rem; padding: 9px 12px; }
+      .hero { min-height: auto; padding: 65px 0; }
+      h1 { letter-spacing: -1.2px; }
+      .projects, .services { grid-template-columns: 1fr; }
+      .section { padding: 65px 0; }
+      .about-box { padding: 25px 18px; }
+      .whatsapp-float { right: 15px; bottom: 15px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Replace the email address in the CONTACT SETTINGS section below. -->
+  <div class="glow one"></div>
+  <div class="glow two"></div>
 
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="#home" aria-label="Mian Abdullah Ahsan home">mian<span>.</span>abdullah</a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu"
-        aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
-
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">Mian<span>.</span></a>
+      <div class="nav-links">
         <a href="#home">Home</a>
-        <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#process">Process</a>
-        <a href="#contact" class="btn btn-primary nav-cta">Let's Talk <span class="arrow">↗</span></a>
-      </nav>
-    </div>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a class="button primary nav-contact" href="#contact">Contact Me</a>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="availability"><span></span> Available for website projects</div>
+    <section class="hero container" id="home">
+      <div>
+        <span class="eyebrow">✦ Web Developer · Pakistan</span>
+        <h1>Building Websites That Make Your Business <span class="gradient">Stand Out.</span></h1>
+        <p>
+          I'm Mian Abdullah Ahsan, a web developer who creates modern,
+          responsive and user-friendly websites for businesses and brands.
+          Let's turn your idea into a professional online presence.
+        </p>
 
-          <div class="eyebrow">Web designer & developer</div>
-          <h1>
-            Mian Abdullah
-            <span class="name gradient-text">Ahsan.</span>
-            I build websites that
-            <span class="gradient-text">mean business.</span>
-          </h1>
-
-          <p class="hero-copy">
-            I create modern, responsive websites that help businesses present
-            their services clearly and make it easier for potential customers
-            to get in touch.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Explore My Work <span class="arrow">↘</span></a>
-            <a class="btn btn-secondary contact-email" href="#contact">Contact Me <span class="arrow">↗</span></a>
-          </div>
-
-          <p class="hero-note"><strong>HTML · CSS · JavaScript</strong> &nbsp;|&nbsp; Responsive-first design</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore My Work ↗</a>
+          <a class="button secondary" href="https://wa.me/923061117876?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener">WhatsApp Me ↗</a>
         </div>
 
-        <div class="visual-wrap" aria-label="Illustration of a developer working at a computer">
-          <div class="visual-glow"></div>
-
-          <div class="floating-card float-one">
-            <div class="floating-icon">⌘</div>
-            <div><strong>Clean UI</strong><small>Thoughtful layouts</small></div>
-          </div>
-
-          <svg class="developer-art" viewBox="0 0 480 500" role="img" aria-labelledby="artTitle artDesc" xmlns="http://www.w3.org/2000/svg">
-            <title id="artTitle">Developer workstation illustration</title>
-            <desc id="artDesc">A stylized developer at a desk with a computer, code editor, and blue-purple lighting.</desc>
-            <defs>
-              <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#18254b"/>
-                <stop offset="1" stop-color="#17152f"/>
-              </linearGradient>
-              <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#617fff"/>
-                <stop offset="1" stop-color="#8b65db"/>
-              </linearGradient>
-              <linearGradient id="desk" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#29375f"/>
-                <stop offset="1" stop-color="#171d34"/>
-              </linearGradient>
-              <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#f2c5a8"/>
-                <stop offset="1" stop-color="#c98d76"/>
-              </linearGradient>
-              <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="14"/>
-              </filter>
-            </defs>
-
-            <circle cx="247" cy="230" r="165" fill="#5b64ee" opacity=".09"/>
-            <circle cx="260" cy="232" r="120" fill="#8d5be8" opacity=".07"/>
-            <ellipse cx="244" cy="426" rx="173" ry="19" fill="#050711" opacity=".55" filter="url(#softShadow)"/>
-
-            <!-- Decorative UI panels -->
-            <rect x="50" y="100" width="112" height="72" rx="12" fill="#151d37" stroke="#7588e8" stroke-opacity=".28"/>
-            <rect x="65" y="116" width="43" height="5" rx="2.5" fill="#8fa4ff"/>
-            <rect x="65" y="129" width="79" height="4" rx="2" fill="#55648d"/>
-            <rect x="65" y="141" width="63" height="4" rx="2" fill="#6b5cc1"/>
-            <circle cx="143" cy="116" r="4" fill="#7ce1b5"/>
-
-            <rect x="338" y="123" width="87" height="104" rx="12" fill="#141a31" stroke="#8d75ec" stroke-opacity=".3"/>
-            <rect x="351" y="139" width="60" height="5" rx="2.5" fill="#9b8bff"/>
-            <rect x="351" y="154" width="44" height="4" rx="2" fill="#58668d"/>
-            <rect x="351" y="166" width="55" height="4" rx="2" fill="#6586ff"/>
-            <rect x="351" y="178" width="37" height="4" rx="2" fill="#58668d"/>
-            <rect x="351" y="196" width="48" height="14" rx="5" fill="#5d71e7" opacity=".8"/>
-
-            <!-- Desk -->
-            <path d="M48 340 Q48 330 60 330 H423 Q435 330 435 342 V357 H48Z" fill="url(#desk)" stroke="#7286d2" stroke-opacity=".25"/>
-            <path d="M83 357 H102 L94 420 H76Z" fill="#252d4a"/>
-            <path d="M385 357 H404 L414 420 H396Z" fill="#252d4a"/>
-            <path d="M71 420 H116 M388 420 H421" stroke="#54638f" stroke-width="7" stroke-linecap="round"/>
-
-            <!-- Chair -->
-            <path d="M160 255 Q153 216 184 202 H288 Q319 217 310 273 L300 344 H167Z"
-              fill="#18203a" stroke="#4c5a91" stroke-opacity=".45"/>
-            <path d="M181 238 Q236 212 291 239 L284 309 H185Z" fill="#202a4b"/>
-
-            <!-- Body -->
-            <path d="M188 256 Q200 239 220 239 H259 Q286 245 297 276 L311 341 H166Z" fill="url(#shirt)"/>
-            <path d="M219 240 L239 265 L260 240" fill="#d6dfff" opacity=".88"/>
-            <path d="M235 266 L229 310 L244 325 L253 309 L245 266Z" fill="#354aa0" opacity=".8"/>
-
-            <!-- Neck and head -->
-            <path d="M218 210 L217 247 Q238 265 260 244 L255 208Z" fill="url(#skin)"/>
-            <ellipse cx="239" cy="174" rx="51" ry="59" fill="url(#skin)"/>
-            <path d="M190 176 Q176 121 222 109 Q273 100 290 142 Q294 160 286 178
-                     L275 153 Q250 151 231 133 Q218 155 192 157Z" fill="#20243b"/>
-            <path d="M190 156 Q205 142 211 124 Q238 146 274 144 L286 163 Q302 128 270 108
-                     Q231 87 200 111 Q177 128 190 156Z" fill="#292b46"/>
-            <path d="M213 179 Q222 175 230 179" stroke="#5d3a37" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <path d="M250 179 Q258 175 266 179" stroke="#5d3a37" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <path d="M240 183 L235 198 L244 200" stroke="#b67566" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M225 211 Q239 219 253 209" stroke="#874c4a" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <ellipse cx="188" cy="178" rx="7" ry="12" fill="#d9a18a"/>
-            <ellipse cx="289" cy="178" rx="7" ry="12" fill="#d9a18a"/>
-
-            <!-- Arms -->
-            <path d="M192 268 Q173 277 171 301 L207 325 L224 308 L205 284Z" fill="url(#skin)"/>
-            <path d="M281 267 Q302 281 298 302 L268 326 L251 309 L275 284Z" fill="url(#skin)"/>
-
-            <!-- Monitor -->
-            <rect x="69" y="211" width="161" height="116" rx="9" fill="#10162b" stroke="#7388e9" stroke-width="2"/>
-            <rect x="78" y="220" width="143" height="94" rx="4" fill="url(#screen)"/>
-            <rect x="88" y="231" width="47" height="4" rx="2" fill="#7a8eff"/>
-            <rect x="88" y="242" width="91" height="3" rx="1.5" fill="#5c6a98"/>
-            <rect x="98" y="253" width="69" height="3" rx="1.5" fill="#9b83f6"/>
-            <rect x="98" y="264" width="102" height="3" rx="1.5" fill="#5c8eff"/>
-            <rect x="88" y="275" width="82" height="3" rx="1.5" fill="#59688d"/>
-            <rect x="98" y="286" width="57" height="3" rx="1.5" fill="#77d7b1"/>
-            <path d="M137 327 V340 M118 340 H156" stroke="#7284cb" stroke-width="5" stroke-linecap="round"/>
-
-            <!-- Laptop -->
-            <path d="M249 305 L355 305 L370 333 Q371 339 362 339 H240 Q233 339 238 332Z" fill="#8b9dd2"/>
-            <path d="M253 309 H351 L361 330 H244Z" fill="#151a31"/>
-            <rect x="281" y="335" width="45" height="2" rx="1" fill="#a7b5e7"/>
-
-            <!-- Mug -->
-            <path d="M392 300 H420 V328 Q420 338 410 338 H402 Q392 338 392 328Z" fill="#242f56" stroke="#8495e0" stroke-opacity=".6"/>
-            <path d="M420 306 H426 Q435 306 432 317 Q430 324 420 323" fill="none" stroke="#8495e0" stroke-width="4"/>
-            <path d="M401 309 H412" stroke="#a7b7ff" stroke-width="3" stroke-linecap="round"/>
-
-            <!-- Small accents -->
-            <circle cx="345" cy="75" r="4" fill="#8fa5ff"/>
-            <circle cx="364" cy="89" r="2.5" fill="#b49aff"/>
-            <path d="M80 183 L87 190 L80 197 L73 190Z" fill="#8c9dff" opacity=".8"/>
-            <path d="M379 255 L385 261 L379 267 L373 261Z" fill="#b69bff" opacity=".8"/>
-          </svg>
-
-          <div class="floating-card float-two">
-            <div class="floating-icon">↗</div>
-            <div><strong>Responsive design</strong><small>Desktop, tablet & mobile</small></div>
-          </div>
-        </div>
+        <p class="hero-note">Responsive design · Modern layouts · Business-focused websites</p>
       </div>
-    </section>
 
-    <section class="container" aria-label="What I focus on">
-      <div class="proof-strip">
-        <div class="proof-item">
-          <strong>Business-focused</strong>
-          <span>Clear service presentation</span>
-        </div>
-        <div class="proof-item">
-          <strong>Responsive-first</strong>
-          <span>Layouts for every screen</span>
-        </div>
-        <div class="proof-item">
-          <strong>Direct communication</strong>
-          <span>A clear path to contact</span>
-        </div>
-      </div>
-    </section>
+      <div class="profile-card">
+        <div class="avatar" aria-label="Mian Abdullah Ahsan initials">MA</div>
+        <h2>Mian Abdullah Ahsan</h2>
+        <p>Web Developer</p>
 
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <div>
-          <div class="eyebrow">A little about me</div>
-          <h2 style="margin-top:15px">Good design should do more than <span class="gradient-text">look good.</span></h2>
+        <div class="skill-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Responsive Design</span>
         </div>
 
-        <div class="about-copy">
-          <p>
-            I'm Mian Abdullah Ahsan, a web developer focused on building
-            modern websites for businesses. I care about clear layouts,
-            readable content, mobile usability, and making important
-            information easy for visitors to find.
-          </p>
-          <p>
-            My portfolio includes demonstration websites for different
-            business types. I use these projects to show my approach to
-            layout, design, and website structure.
-          </p>
-
-          <div class="skill-list" aria-label="Skills">
-            <span class="skill">HTML5</span>
-            <span class="skill">CSS3</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Responsive Design</span>
-            <span class="skill">UI Design</span>
-            <span class="skill">GitHub Pages</span>
+        <div class="certificate">
+          <div class="certificate-top">
+            <div class="check" aria-hidden="true">✓</div>
+            <div>
+              <small>PERSONAL PORTFOLIO CARD</small>
+              <h3>Mian Abdullah Ahsan</h3>
+              <p>Web Developer</p>
+            </div>
           </div>
         </div>
       </div>
@@ -646,264 +409,124 @@
     <section class="section" id="projects">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow">Selected work</div>
-          <h2>Website demos, built with <span class="gradient-text">purpose.</span></h2>
-          <p>
-            Explore sample website concepts for businesses. Each project
-            demonstrates a different layout and customer experience.
-          </p>
+          <h2>Featured <span class="gradient">Projects</span></h2>
+          <p>Explore my website demos across different business industries.</p>
         </div>
 
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-icon" aria-hidden="true">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                  <path d="M3 21V8l9-5 9 5v13M7 21v-7h10v7M7 9h.01M12 9h.01M17 9h.01"/>
-                </svg>
-              </div>
-              <span class="project-type">Real Estate</span>
-            </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-icon">🏡</div>
             <h3>Real Estate Website</h3>
-            <p>A property-focused concept to present listings, agency information, and inquiry options in a clear layout.</p>
-            <div class="project-bottom">
-              <span class="demo-label">Demonstration project</span>
-              <a class="project-link" href="https://mianabd.github.io/real-estate-demo/" target="_blank" rel="noopener noreferrer">View demo ↗</a>
-            </div>
+            <p>A modern property website concept for showcasing listings and helping buyers explore properties.</p>
+            <a href="https://mianabd.github.io/real-estate-demo/" target="_blank" rel="noopener">View Live Demo ↗</a>
           </article>
 
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-icon" aria-hidden="true">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                  <path d="M4 8h16l-1 13H5L4 8ZM9 8V6a3 3 0 0 1 6 0v2M8 12v.01M16 12v.01"/>
-                </svg>
-              </div>
-              <span class="project-type">Barber & Salon</span>
-            </div>
-            <h3>Barber Salon Website</h3>
-            <p>A modern salon concept for showcasing services, building a strong first impression, and guiding customers.</p>
-            <div class="project-bottom">
-              <span class="demo-label">Demonstration project</span>
-              <a class="project-link" href="https://mianabd.github.io/barber-saloon-demo/" target="_blank" rel="noopener noreferrer">View demo ↗</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-icon" aria-hidden="true">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                  <path d="M3 12h18M5 12v8h14v-8M8 12V8a4 4 0 0 1 8 0v4M9 16h.01M15 16h.01"/>
-                </svg>
-              </div>
-              <span class="project-type">Healthcare</span>
-            </div>
+          <article class="project">
+            <div class="project-icon">🦷</div>
             <h3>Dental Clinic Website</h3>
-            <p>A clinic website concept with a service-focused layout and clear navigation for prospective patients.</p>
-            <div class="project-bottom">
-              <span class="demo-label">Fictional demo</span>
-              <a class="project-link" href="https://mianabd.github.io/dental-clinic-demo/" target="_blank" rel="noopener noreferrer">View demo ↗</a>
-            </div>
+            <p>A clinic website concept with treatment information and convenient appointment contact options.</p>
+            <a href="https://mianabd.github.io/dental-clinic-demo/" target="_blank" rel="noopener">View Live Demo ↗</a>
           </article>
 
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-icon" aria-hidden="true">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                  <path d="M4 10h16l-2 11H6L4 10ZM3 10l2-6h14l2 6M9 10V7m6 3V7M9 15h6"/>
-                </svg>
-              </div>
-              <span class="project-type">Restaurant</span>
-            </div>
+          <article class="project">
+            <div class="project-icon">🍽️</div>
             <h3>Restaurant Website</h3>
-            <p>A food business concept designed to display menu information, brand identity, and key customer details.</p>
-            <div class="project-bottom">
-              <span class="demo-label">Fictional demo</span>
-              <a class="project-link" href="https://mianabd.github.io/restaurant-demo/" target="_blank" rel="noopener noreferrer">View demo ↗</a>
-            </div>
+            <p>A restaurant website concept for presenting menu highlights, atmosphere and contact details.</p>
+            <a href="https://mianabd.github.io/restaurant-demo/" target="_blank" rel="noopener">View Live Demo ↗</a>
           </article>
 
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-icon" aria-hidden="true">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                  <path d="M3 21V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16M8 7h2m4 0h2M8 11h2m4 0h2M8 15h2m4 0h2M2 21h20"/>
-                </svg>
-              </div>
-              <span class="project-type">Education</span>
-            </div>
+          <article class="project">
+            <div class="project-icon">💈</div>
+            <h3>Barber Salon Website</h3>
+            <p>A stylish salon website concept featuring services, business information and booking contact options.</p>
+            <a href="https://mianabd.github.io/barber-saloon-demo/" target="_blank" rel="noopener">View Live Demo ↗</a>
+          </article>
+
+          <article class="project">
+            <div class="project-icon">🎓</div>
             <h3>School Website</h3>
-            <p>An educational website concept to organize school information and present key details in a structured way.</p>
-            <div class="project-bottom">
-              <span class="demo-label">Demonstration project</span>
-              <a class="project-link" href="https://mianabd.github.io/school-demo/" target="_blank" rel="noopener noreferrer">View demo ↗</a>
-            </div>
+            <p>An educational website concept for introducing a school, sharing information and highlighting programs.</p>
+            <a href="https://mianabd.github.io/school-demo/" target="_blank" rel="noopener">View Live Demo ↗</a>
           </article>
 
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-icon" aria-hidden="true">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                  <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/>
-                </svg>
-              </div>
-              <span class="project-type">Custom websites</span>
-            </div>
-            <h3>Your Business Could Be Next</h3>
-            <p>Have a business idea or need a website refresh? Let's discuss the pages, features, and design that fit your needs.</p>
-            <div class="project-bottom">
-              <span class="demo-label">Start a conversation</span>
-              <a class="project-link contact-email" href="#contact">Discuss a project ↗</a>
-            </div>
+          <article class="project">
+            <div class="project-icon">✨</div>
+            <h3>Your Business Website</h3>
+            <p>Have a business idea? Let's discuss a custom website concept suited to your brand and customers.</p>
+            <a href="https://wa.me/923061117876?text=Assalam%20o%20Alaikum%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener">Discuss Your Project ↗</a>
           </article>
         </div>
-
-        <p class="demo-disclaimer">
-          Note: These are demonstration projects, not claims of commissioned client work.
-          Business details, where fictional, are included for design presentation only.
-        </p>
       </div>
     </section>
 
-    <section class="section" id="process">
+    <section class="section" id="services">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow">How I work</div>
-          <h2>A clear process. <span class="gradient-text">No surprises.</span></h2>
-          <p>Every project starts with understanding what the business needs and agreeing on the scope.</p>
+          <h2>What I <span class="gradient">Can Build</span></h2>
+          <p>Website solutions designed around your business needs.</p>
         </div>
 
-        <div class="process-grid">
-          <article class="process-card">
-            <span class="process-number">01 / DISCOVER</span>
-            <h3>Understand your business</h3>
-            <p>We discuss your audience, goals, required pages, features, and design preferences.</p>
+        <div class="services">
+          <article class="service">
+            <div class="icon">💻</div>
+            <h3>Business Websites</h3>
+            <p>Professional pages to introduce your business, services and contact details.</p>
           </article>
-          <article class="process-card">
-            <span class="process-number">02 / DESIGN & BUILD</span>
-            <h3>Create your website</h3>
-            <p>I build the agreed layout, make it responsive, and share a preview for your feedback.</p>
+
+          <article class="service">
+            <div class="icon">📱</div>
+            <h3>Responsive Design</h3>
+            <p>Layouts designed to work across mobile phones, tablets and desktop screens.</p>
           </article>
-          <article class="process-card">
-            <span class="process-number">03 / REVIEW</span>
-            <h3>Review and hand over</h3>
-            <p>We review the agreed work, address included revisions, and arrange the final handover.</p>
+
+          <article class="service">
+            <div class="icon">⚡</div>
+            <h3>Landing Pages</h3>
+            <p>Focused landing pages that explain your offer and guide visitors towards contacting you.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-box">
+          <span class="eyebrow">A little about me</span>
+          <h2>Let's Build Something <span class="gradient">Meaningful.</span></h2>
+          <p>
+            I'm Mian Abdullah Ahsan, a web developer focused on creating
+            clean, attractive and easy-to-use websites. I believe every
+            business deserves a professional online presence, and I aim to
+            turn each project into a useful experience for its visitors.
+          </p>
         </div>
       </div>
     </section>
 
     <section class="section" id="contact">
       <div class="container">
-        <div class="contact-panel">
-          <div>
-            <div class="eyebrow">Let's work together</div>
-            <h2 style="margin-top:15px">Have a website in mind? <span class="gradient-text">Let's talk.</span></h2>
-            <p>
-              Tell me a little about your business and what you want your website
-              to achieve. We can discuss the requirements, timeline, and budget.
-            </p>
-            <div class="contact-actions">
-              <a class="btn btn-primary" id="emailButton" href="mailto:YOUR_EMAIL_HERE?subject=Website%20Project%20Enquiry">Email Me <span class="arrow">↗</span></a>
-              <button class="btn btn-secondary" id="copyEmailButton" type="button">Copy Email Address</button>
-            </div>
-          </div>
-          <div class="contact-aside">
-            <span>Developer</span>
-            <strong>Mian Abdullah Ahsan</strong>
-            <span style="margin-top:13px">Focus</span>
-            <strong>Responsive business websites</strong>
-          </div>
+        <div class="contact-box">
+          <h2>Have a Website <span class="gradient">in Mind?</span></h2>
+          <p>
+            Tell me about your business and what you need. Let's discuss
+            a website that fits your goals.
+          </p>
+          <a class="button primary" href="https://wa.me/923061117876?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20discuss%20a%20website%20for%20my%20business." target="_blank" rel="noopener">Start a WhatsApp Chat ↗</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Mian Abdullah Ahsan. Built with care.</p>
-      <a class="back-top" href="#home">Back to top ↑</a>
+    <div class="container">
+      © <span id="year"></span> Mian Abdullah Ahsan · Web Developer
     </div>
   </footer>
 
+  <a class="whatsapp-float" href="https://wa.me/923061117876" target="_blank" rel="noopener" aria-label="Contact me on WhatsApp">W</a>
+
   <script>
-    /*
-      CONTACT SETTINGS:
-      Replace this with your real email address before publishing.
-      Example: const CONTACT_EMAIL = "yourname@gmail.com";
-    */
-    const CONTACT_EMAIL = "YOUR_EMAIL_HERE";
-
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-      menuToggle.textContent = isOpen ? "Close ✕" : "Menu ☰";
-    });
-
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation menu");
-        menuToggle.textContent = "Menu ☰";
-      });
-    });
-
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const emailIsConfigured =
-      CONTACT_EMAIL &&
-      CONTACT_EMAIL !== "YOUR_EMAIL_HERE" &&
-      CONTACT_EMAIL.includes("@");
-
-    function updateContactLinks() {
-      if (!emailIsConfigured) {
-        document.getElementById("emailButton").addEventListener("click", event => {
-          event.preventDefault();
-          alert("Please add your real email address in the CONTACT SETTINGS section of index.html first.");
-        });
-
-        document.querySelectorAll(".contact-email").forEach(link => {
-          link.addEventListener("click", event => {
-            // Keep the navigation to the contact section working.
-            if (link.getAttribute("href") === "#contact") return;
-          });
-        });
-        return;
-      }
-
-      const subject = encodeURIComponent("Website Project Enquiry");
-      const mailto = `mailto:${CONTACT_EMAIL}?subject=${subject}`;
-
-      document.getElementById("emailButton").href = mailto;
-
-      document.querySelectorAll(".contact-email").forEach(link => {
-        link.href = mailto;
-      });
-    }
-
-    updateContactLinks();
-
-    document.getElementById("copyEmailButton").addEventListener("click", async () => {
-      const button = document.getElementById("copyEmailButton");
-
-      if (!emailIsConfigured) {
-        alert("First replace YOUR_EMAIL_HERE with your real email address in the CONTACT SETTINGS section.");
-        return;
-      }
-
-      try {
-        await navigator.clipboard.writeText(CONTACT_EMAIL);
-        button.textContent = "Email Copied ✓";
-        setTimeout(() => button.textContent = "Copy Email Address", 2000);
-      } catch {
-        window.prompt("Copy your email address:", CONTACT_EMAIL);
-      }
-    });
   </script>
 </body>
 </html>
